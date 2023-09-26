@@ -1,6 +1,7 @@
 import "./App.css";
 import ImageUpload from "./components/ImageUpload";
 import PersonalInfo from "./components/PersonalInfo";
+import Profile from "./components/Profile";
 
 function App() {
   const handleImageUpload = (file: File) => {
@@ -22,6 +23,7 @@ function App() {
     >
       <ImageUpload onUpload={handleImageUpload} />
       <PersonalInfo />
+      <Profile />
     </main>
   );
 }

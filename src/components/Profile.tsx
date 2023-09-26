@@ -1,5 +1,8 @@
 import { FC, useState } from "react";
-import { Card, Form, Input, Tag, Typography } from "antd";
+
+interface ProfileProps {}
+
+import { Card, Form, Tag, Typography } from "antd";
 import { Divider } from "antd";
 import CustomFormItem from "./CustomFormItem";
 type RequiredMark = boolean | "optional" | "customize";
@@ -18,9 +21,7 @@ const customizeRequiredMark = (
   </>
 );
 
-interface PersonalInfoProps {}
-
-const PersonalInfo: FC<PersonalInfoProps> = () => {
+const Profile: FC<ProfileProps> = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] =
     useState<RequiredMark>("optional");
@@ -34,7 +35,7 @@ const PersonalInfo: FC<PersonalInfoProps> = () => {
   };
   return (
     <Card
-      title="Personal Information"
+      title="Profile"
       headStyle={{
         backgroundColor: "#D0F7FA",
         color: "#000",
@@ -62,37 +63,16 @@ const PersonalInfo: FC<PersonalInfoProps> = () => {
           requiredMark === "customize" ? customizeRequiredMark : requiredMark
         }
       >
-        <Form.Item label="First Name" required>
-          <Input />
-        </Form.Item>
-        <Form.Item label="Last Name" required>
-          <Input />
-        </Form.Item>
-        <Form.Item label="Email" required>
-          <Input />
-        </Form.Item>
         <Form.Item required>
-          <CustomFormItem title="Phone (without dial code)" />
+          <CustomFormItem title="Education" checkLabel="Mondatory" />
         </Form.Item>
         <Divider />
         <Form.Item required>
-          <CustomFormItem title="Nationality" />
+          <CustomFormItem title="Experience" checkLabel="Mondatory" />
         </Form.Item>
         <Divider />
         <Form.Item required>
-          <CustomFormItem title="Current Residence" />
-        </Form.Item>
-        <Divider />
-        <Form.Item required>
-          <CustomFormItem title="ID Number" />
-        </Form.Item>
-        <Divider />
-        <Form.Item required>
-          <CustomFormItem title="Date of Birth" />
-        </Form.Item>
-        <Divider />
-        <Form.Item required>
-          <CustomFormItem title="Gender" />
+          <CustomFormItem title="Resume" checkLabel="Mondatory" />
         </Form.Item>
         <Divider />
 
@@ -134,4 +114,4 @@ const PersonalInfo: FC<PersonalInfoProps> = () => {
   );
 };
 
-export default PersonalInfo;
+export default Profile;

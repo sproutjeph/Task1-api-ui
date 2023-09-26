@@ -1,4 +1,5 @@
 import "./App.css";
+import AdditionalQuestion from "./components/AdditionalQuestion";
 import ImageUpload from "./components/ImageUpload";
 import PersonalInfo from "./components/PersonalInfo";
 import Profile from "./components/Profile";
@@ -24,6 +25,7 @@ function App() {
       <ImageUpload onUpload={handleImageUpload} />
       <PersonalInfo />
       <Profile />
+      <AdditionalQuestion />
     </main>
   );
 }

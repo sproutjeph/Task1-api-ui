@@ -1,27 +1,15 @@
-import "./App.css";
 import AdditionalQuestion from "./components/AdditionalQuestion";
-import ImageUpload from "./components/ImageUpload";
 import PersonalInfo from "./components/PersonalInfo";
+import ImageUpload from "./components/ImageUpload";
 import Profile from "./components/Profile";
+import "./App.css";
 
 function App() {
   const handleImageUpload = (file: File) => {
     console.log("Uploaded file:", file);
   };
   return (
-    <main
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        width: "100vw",
-        backgroundColor: "white",
-        padding: "20px",
-        gap: "20px",
-        overflow: "scroll",
-      }}
-    >
+    <main className="main">
       <ImageUpload onUpload={handleImageUpload} />
       <PersonalInfo />
       <Profile />

@@ -1,7 +1,9 @@
 import { Card, Divider, Typography } from "antd";
 import { FC } from "react";
-import { EditOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
+import { headStyle } from "../utils/styles";
+import EditQuestion from "./EditQuestion";
+import AddQuestionButton from "./AddQuestionButton";
 
 const onFinish = (values: any) => {
   console.log("Success:", values);
@@ -17,83 +19,22 @@ const AdditionalQuestion: FC<AdditionalQuestionProps> = () => {
   return (
     <Card
       title="Additional Questions"
-      headStyle={{
-        backgroundColor: "#D0F7FA",
-        color: "#000",
-        fontSize: "25px",
-        fontStyle: "normal",
-        fontWeight: "600",
-        lineHeight: "114%",
-        height: "24.98px",
-        flexShrink: 0,
-      }}
-      style={{
-        maxWidth: "595px",
-        width: "100%",
-        borderRadius: "20px",
-        background: "#FFF",
-        boxShadow: "3px 3px 14px 0px rgba(190, 190, 190, 0.30)",
-      }}
+      headStyle={headStyle}
+      className="card-container"
     >
-      <div>
-        <Typography
-          style={{
-            color: "#979797",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "159.5%",
-          }}
-        >
-          paragraph
-        </Typography>
-        <div
-          className=""
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography>
-            Please tell me about yourself in less than 500 words
-          </Typography>
-          <EditOutlined />
-        </div>
-      </div>
+      <EditQuestion
+        title="Please tell me about yourself in less than 500 words"
+        subTitle="paragraph"
+      />
+
       <Divider />
-      <div>
-        <Typography
-          style={{
-            color: "#979797",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "159.5%",
-          }}
-        >
-          Dropdown
-        </Typography>
-        <div
-          className=""
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography>
-            Please select the year of graduation from the list below
-          </Typography>
-          <EditOutlined />
-        </div>
-      </div>
+      <EditQuestion
+        title="Please select the year of graduation from the list below"
+        subTitle="Dropdown"
+      />
+
       <Divider />
       <Form
-        // name="basic"
-        // labelCol={{ span: 8 }}
-        // wrapperCol={{ span: 16 }}
-        // style={{ maxWidth: 600 }}
         layout="vertical"
         initialValues={{ remember: true }}
         onFinish={onFinish}
@@ -220,66 +161,12 @@ const AdditionalQuestion: FC<AdditionalQuestionProps> = () => {
         </div>
       </Form>
       <Divider />
-      <div>
-        <Typography
-          style={{
-            color: "#979797",
-            fontSize: "14px",
-            fontStyle: "normal",
-            fontWeight: 500,
-            lineHeight: "159.5%",
-          }}
-        >
-          Yes/No Question
-        </Typography>
-        <div
-          className=""
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography>
-            Have you ever been rejected by the UK embassy?
-          </Typography>
-          <EditOutlined />
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "20px",
-          color: "#000",
-          fontSize: "15px",
-          fontStyle: "normal",
-          fontWeight: 600,
-          lineHeight: "24px",
-          letterSpacing: "-0.09px",
-          marginTop: "20px",
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="25"
-          height="24"
-          viewBox="0 0 25 24"
-          fill="none"
-        >
-          <path
-            d="M2.42465 11.9094L1 11.9183L12.8925 11.8456L24.7851 11.773"
-            stroke="black"
-            stroke-width="5"
-          />
-          <path
-            d="M12.7915 2.51806L12.7838 1.0934L12.8466 12.986L12.8466 24"
-            stroke="black"
-            stroke-width="5"
-          />
-        </svg>
-        <Typography>Add a Question</Typography>
-      </div>
+      <EditQuestion
+        title="Have you ever been rejected by the UK embassy?"
+        subTitle="Yes/No Question"
+      />
+
+      <AddQuestionButton />
     </Card>
   );
 };

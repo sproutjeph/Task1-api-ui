@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Upload, Image, Card, Typography } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import { headStyle } from "../utils/styles";
 
 interface ImageUploadProps {
   onUpload: (file: File) => void;
@@ -93,24 +94,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({ onUpload }) => {
       ) : (
         <Card
           title="Upload cover image"
-          headStyle={{
-            backgroundColor: "#D0F7FA",
-            color: "#000",
-            fontSize: "25px",
-            fontStyle: "normal",
-            fontWeight: "600",
-            lineHeight: "114%",
-            height: "24.98px",
-            flexShrink: 0,
-          }}
-          style={{
-            maxWidth: "595px",
-            width: "100%",
-            height: "408px",
-            borderRadius: "20px",
-            background: "#FFF",
-            boxShadow: "3px 3px 14px 0px rgba(190, 190, 190, 0.30)",
-          }}
+          headStyle={headStyle}
+          className="card-container"
         >
           <div
             className=""
